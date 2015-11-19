@@ -2,9 +2,10 @@ package com.goitjb4.projects.tictactoe;
 
 /**
  * Ётот класс позвол€ет ∆»¬ќћ” игроку участвовать в доске
- * @author ѕапа јйс
+ * 
  * на вход: "состо€ние доски" int [9]
  * на выход: "ход" int   
+ * @author ѕапа јйс
  * 
  * This Class allows a live player to play
  * 
