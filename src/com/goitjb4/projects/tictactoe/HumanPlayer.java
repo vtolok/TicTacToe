@@ -29,8 +29,8 @@ public class HumanPlayer {
 	public static int IAmHuman(int [] board){ 
 		int move;
 		Scanner key = new Scanner (System.in);
-		do{
-			System.out.println("Select a cell to make your next move by pressing respective number:\n"
+		
+			do{System.out.println("Select a cell to make your next move by pressing respective number:\n"
 				+"1-2-3\n4-5-6\n7-8-9");
 		move = key.nextInt();
 		}while((move<1)&&(move>9));

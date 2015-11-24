@@ -71,7 +71,7 @@ public class PlayerManager {
 				AIName="ROMAN'S AI";
 			if (ctrl==2)
 				AIName="ANTON'S AI";
-			if (ctrl==2)
+			if (ctrl==3) //WAS FIXED BY ANTON
 				AIName="CONSTANTIN'S AI";
 
 			if (playerID==PLAYER1INT){
@@ -100,7 +100,7 @@ public class PlayerManager {
 		}
 	}
 	
-	public static int selectHumanOrAI (int [] board, int playerID){// SELECST BETWEE HUMAN AND AI CALSS to ADRESS the next MOVE
+	public static int selectHumanOrAI (int [] board, int playerID){// SELECT BETWEEN HUMAN AND AI CALSS to ADRESS the next MOVE
 		int move=0;
 		if (playerID==PLAYER1INT){
 			if (Player1IsAI==false)
@@ -111,7 +111,7 @@ public class PlayerManager {
 						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!
 						break;
 					case "ANTON'S AI":
-						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH ANTON'S AI CALLING METHOD!!!!
+						move=new AnteBot(board, playerID).smartMove();// It's Alive!!! ALIVE!!!!!!!!!
 						break;
 					case "CONSTANTIN'S AI":
 						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH CONSTATIN'S AI CALLING METHOD!!!!
@@ -126,7 +126,7 @@ public class PlayerManager {
 						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!!
 						break;
 					case "ANTON'S AI":
-						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH ANTON'S AI CALLING METHOD!!!!
+						move=new AnteBot(board, playerID).smartMove();// It's Alive!!! ALIVE!!!!!!!!
 						break;
 					case "CONSTANTIN'S AI":
 						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH CONSTATIN'S AI CALLING METHOD!!!!
