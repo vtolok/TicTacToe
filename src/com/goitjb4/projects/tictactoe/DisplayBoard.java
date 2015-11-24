@@ -26,12 +26,12 @@ public class DisplayBoard {
 
 	public static void draw (){// DiSPLAYS THE BOARD IN CONSOLE
 		getAndConverBoard();
-		System.out.println(" -------------- ");
+		System.out.println(" ----------- ");
 		for (int i=0;i<Game.BOARDSIZE;i+=3){
-		System.out.printf ("| %c  | %c  | %c  |\n",charBoard[i],charBoard[i+1],charBoard[i+2]);
+		System.out.printf ("| %c | %c | %c |\n",charBoard[i],charBoard[i+1],charBoard[i+2]);
 		if (i<6)
-			System.out.println("-----+----+-----");
+			System.out.println("----+---+----");
 		}
-		System.out.println(" -------------- ");
+		System.out.println(" ----------- ");
 	}
 }

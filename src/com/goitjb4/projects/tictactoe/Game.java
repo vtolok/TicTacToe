@@ -39,7 +39,7 @@ public class Game {
 		int temp;
 		Scanner choice = new Scanner (System.in);
 		do {
-			System.out.println("Choose a player who is to begin first:\n(1) - Player 1 (plays X), (2) - Player 2 (plays O)");
+			System.out.printf("Choose a player to move first:\n(1) - Player %c, (2) - Player %c",PlayerManager.PLAYER1CHAR,PlayerManager.PLAYER2CHAR);
 			temp = choice.nextInt();
 			if (temp==1)
 				playerID=PlayerManager.PLAYER1INT;
@@ -50,21 +50,20 @@ public class Game {
 
 	//***************************************************************************************************************************************
 	
-	
 	public static void makeMove(int move, int playerID){ //receives a move and puts it on a board
 		
-		if (checkLegalMove(move)){//ILLEGAL MOVE, ABORT 
-			System.out.println("Oops! That move is illegal! Try again!");
+		if (checkLegalMove(move)){//ILLEGAL MOVE, RETRY 
+			System.out.print("Oops! That move is illegal! Try again:!");
 			return;
 		}
 		
-		masterBoard[move-1]=playerID;
+		masterBoard[move]=playerID;// ASSUMES  "MOVE int" is in 0-8 range
 		
 		DisplayBoard.draw();
 		
 		if (checkVictory(playerID)){
 			System.out.println("Victory!!! Congratulations!");
-			victoryFlag=true;//	VICTORY, ABORT
+			victoryFlag=true;//	VICTORY, FINISH PROGRAM
 			return;
 		}
 		
@@ -87,7 +86,7 @@ public class Game {
 	
 	private static boolean checkLegalMove(int move){//for checking if the move was legal
 		boolean illegal=true;
-		if (masterBoard[move-1]==0)// ASSUMES  "MOVE int" is in 0-8 range
+		if (masterBoard[move]==0)// ASSUMES  "MOVE int" is in 0-8 range
 			illegal=false;
 		return illegal;
 		}

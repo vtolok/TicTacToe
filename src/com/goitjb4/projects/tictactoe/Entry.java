@@ -21,7 +21,7 @@ public class Entry {
 		do {
 			PlayerManager.tellPlayer();
 			
-			Game.makeMove(PlayerManager.selectorHumanOrAI(Game.getBoard(), Game.getPlayerID()),Game.getPlayerID());
+			Game.makeMove(PlayerManager.selectHumanOrAI(Game.getBoard(), Game.getPlayerID()),Game.getPlayerID());
 		}while (Game.getVictoryFlag()==false);// VICTORY CONDITION CHECK
 			
 		System.out.println("Thanks for the game!");//GOODBYE

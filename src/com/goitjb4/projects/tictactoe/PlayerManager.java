@@ -25,8 +25,8 @@ public class PlayerManager {
 	
 	public static void selectPlayers(){// SELECTING HUMAN OR CPU PLAYERS 									
 		do{
-			Game.setPlayerID (1);// PLAYER 1
-			System.out.println("Select player 1:\n(1) - Human, (2) - CPU");
+			Game.setPlayerID (PLAYER1INT);// PLAYER 1
+			System.out.printf("Select player %c:\n(1) - Human, (2) - CPU", PLAYER1CHAR);
 			ctrl=key.nextInt();
 			}while((ctrl!=1)&&(ctrl!=2));
 			
@@ -39,8 +39,8 @@ public class PlayerManager {
 		}
 			
 		do{
-			Game.setPlayerID (-1);// PLAYER 2
-			System.out.println("Select player 2:\n(1) - Human, (2) - CPU");
+			Game.setPlayerID (PLAYER2INT);// PLAYER 2
+			System.out.printf("Select player %c:\n(1) - Human, (2) - CPU",PLAYER2CHAR);
 			ctrl=key.nextInt();
 		}while((ctrl!=1)&&(ctrl!=2));
 			
@@ -57,13 +57,13 @@ public class PlayerManager {
 	
 	public static void setAI(int playerID){// SELECTING THE AI AS A CPU PLAYER
 		do{
-			System.out.print("Please set Player ");
-			if (playerID==1)
-				System.out.println("1 NAME: ");
+			System.out.print("Setting CPU Player ");
+			if (playerID==PLAYER1INT)
+				System.out.printf("%c: ",PLAYER1CHAR);
 			else
-				System.out.println("2 NAME: ");
+				System.out.printf("%c: ",PLAYER2CHAR);
 			
-			System.out.println("Select the AI for this CPU player:\n(1) - ROMAN, (2) - ANTON, (3) - CONSTANTIN, (0) - NO CPU, return");
+			System.out.println("select the AI:\n(1) - ROMAN, (2) - ANTON, (3) - CONSTANTIN, (0) - NO CPU, return");
 			String AIName="noname";
 			
 			ctrl=key.nextInt();
@@ -74,12 +74,12 @@ public class PlayerManager {
 			if (ctrl==2)
 				AIName="CONSTANTIN'S AI";
 
-			if (playerID==1){
+			if (playerID==PLAYER1INT){
 				PlayerManager.Player1Name=AIName;
-				System.out.println(AIName+" - is playing \""+PlayerManager.PLAYER1CHAR+"\"\n");
+				System.out.println("\n"+AIName+" - is playing \""+PlayerManager.PLAYER1CHAR+"\"\n");
 			}else{
 				PlayerManager.Player2Name=AIName;
-				System.out.println(AIName+" - is playing \""+PlayerManager.PLAYER2CHAR+"\"\n");
+				System.out.println("\n"+AIName+" - is playing \""+PlayerManager.PLAYER2CHAR+"\"\n");
 			}
 			if (ctrl==0)
 				selectPlayers();// Рекурсия для выбора игрока заново - РАБОТАЕТ ЛИ?
@@ -91,16 +91,16 @@ public class PlayerManager {
 	
 	public static void tellPlayer(){// SHOWS WHICH PLAYE'S MOVE IS BEinG MADE
 	if (Game.getPlayerID()==PlayerManager.PLAYER1INT)
-		System.out.println("It is now "+PlayerManager.Player1Name+" (Player 1)'s turn");
+		System.out.printf("It is now "+PlayerManager.Player1Name+" (Player %c)'s turn\n",PLAYER1CHAR);
 	else{
 		if (Game.getPlayerID()==PlayerManager.PLAYER2INT) 
-		System.out.println("It is now "+PlayerManager.Player2Name+" (Player 2)'s turn");
+		System.out.printf("It is now "+PlayerManager.Player2Name+" (Player %c)'s turn\n",PLAYER2CHAR);
 		else
 			System.out.println("Fuck... system is confused! Whose turn was that, again?");
 		}
 	}
 	
-	public static int selectorHumanOrAI (int [] board, int playerID){// SELECST BETWEE HUMAN AND AI CALSS to ADRESS the next MOVE
+	public static int selectHumanOrAI (int [] board, int playerID){// SELECST BETWEE HUMAN AND AI CALSS to ADRESS the next MOVE
 		int move=0;
 		if (playerID==PLAYER1INT){
 			if (Player1IsAI==false)
