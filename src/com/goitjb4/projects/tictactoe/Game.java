@@ -13,9 +13,9 @@ public class Game {
 		return masterBoard;
 	}
 	
-	private static boolean victoryFlag=false;
-	public static boolean getVictoryFlag (){
-		return victoryFlag;
+	private static boolean endFlag=false;
+	public static boolean getEndFlag (){
+		return endFlag;
 	}
 	
 			private static int playerID=0;// we use this in to pass info to other methods about which player is in current context
@@ -67,7 +67,13 @@ public class Game {
 			else
 				name=PlayerManager.Player2Name;
 			System.out.printf("Victory for %s! Congratulations!", name);
-			victoryFlag=true;//	VICTORY, FINISH PROGRAM
+			endFlag=true;//	VICTORY, FINISH PROGRAM
+			return;
+		}
+		
+		if(checkFullBoard(move)){
+			System.out.println("Its a DRAW. GG.");
+			endFlag=true;//	DRAW, FINISH PROGRAM
 			return;
 		}
 		switchPlayer();
@@ -87,10 +93,9 @@ public class Game {
 	}
 	
 	private static boolean checkLegalMove(int move){//for checking if the move was legal
-		boolean illegal=true;
 		if (masterBoard[move]==0)// ASSUMES  "MOVE int" is in 0-8 range
-			illegal=false;
-		return illegal;
+			return false;
+		return true;
 		}
 	
 	private static boolean checkVictory (int playerID){// for checking if a victory has been achieved
@@ -109,6 +114,13 @@ public class Game {
 				victory=true;
 		return victory;
 	}
+	private static boolean checkFullBoard (int move){//for checking if board is FULL
+		for (int i=0;i<Constants.BOARD_SIZE;i++)// ASSUMES  "MOVE int" is in 0-8 range
+			if (masterBoard[i]==0){
+				return false;
+			}
+		return true;
+		}
 }
 	
 	

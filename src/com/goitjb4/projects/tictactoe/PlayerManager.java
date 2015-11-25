@@ -82,10 +82,10 @@ public class PlayerManager {
 
 			if (playerID==Constants.PLAYER_1_INT){
 				PlayerManager.Player1Name=AIName;
-				System.out.println(AIName+" - is playing \""+Constants.PLAYER_1_CHAR+"\"\n");
+				System.out.println(AIName+" - is playing \""+Constants.PLAYER_1_CHAR+"\"");
 			}else{
 				PlayerManager.Player2Name=AIName;
-				System.out.println(AIName+" - is playing \""+Constants.PLAYER_2_CHAR+"\"\n");
+				System.out.println(AIName+" - is playing \""+Constants.PLAYER_2_CHAR+"\"");
 			}
 			if (ctrl==0)
 				selectPlayers();
@@ -113,15 +113,12 @@ public class PlayerManager {
 			else
 				switch (Player1Name){
 					case "ROMAN'S AI":
-						//move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!
-						//System.out.println("!!!"+Game.getPlayerID());
-						//move= AIRoman.move(board, 1/*Game.getPlayerID()*/);
 						AbstractAI t = new AIRoman();
-						t.move(board, Game.getPlayerID());
+						move=t.move(board, Game.getPlayerID());
 						break;
 					case "ANTON'S AI":
 						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());
-						move=new AnteBot(board, playerID).smartMove();// It's Alive!!! ALIVE!!!!!!!!!
+						move=new AnteBot(board, Game.getPlayerID()).smartMove();// It's Alive!!! ALIVE!!!!!!!!!
 						break;
 					case "CONSTANTIN'S AI":
 						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH CONSTATIN'S AI CALLING METHOD!!!!
