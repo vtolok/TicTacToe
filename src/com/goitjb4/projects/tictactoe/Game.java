@@ -81,7 +81,7 @@ public class Game {
 				playerID=PlayerManager.PLAYER1INT;
 			}
 			else
-				System.out.println("Fuck! The sistem should've switched player - but failed to do do miserably!");
+				System.out.println("Fuck! The system should've switched player - but failed to do do miserably!");
 	}
 	
 	private static boolean checkLegalMove(int move){//for checking if the move was legal

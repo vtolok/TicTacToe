@@ -12,8 +12,8 @@ public class CPUDummyPlug {
 	
 	public static int IAmCPU(int [] board, int PlayerID){//this is a dummy to emulate a CPU
 		int move;
-		Scanner key = new Scanner (System.in);
-		do{
+		do{Scanner key = new Scanner (System.in);
+		
 			System.out.println("IMAGINE YOU ARE AN AI MAKING A MOVE:\n"
 				+"1-2-3\n4-5-6\n7-8-9");
 		move = key.nextInt()-1;
