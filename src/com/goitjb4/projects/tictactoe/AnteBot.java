@@ -6,6 +6,7 @@ public class AnteBot extends AbstractAI{
 	/*AnteBot(int inputboard[], int playerid){
 		this.cell=translateInputInformation(inputboard, playerid);
 	}*/
+	private int cell[][];
 	
 	@Override
 	int move(int[] board, int player) {
@@ -14,7 +15,7 @@ public class AnteBot extends AbstractAI{
 		return this.smartMove();
 	}
 	
-	private int cell[][];
+	
 	
 
 	public int smartMove(){ //general method for creating a smart move
