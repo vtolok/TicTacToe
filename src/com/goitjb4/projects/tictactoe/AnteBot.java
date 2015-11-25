@@ -1,10 +1,17 @@
 package com.goitjb4.projects.tictactoe;
 
 
-public class AnteBot {
+public class AnteBot extends AbstractAI{
 	
-	AnteBot(int inputboard[], int playerid){
+	/*AnteBot(int inputboard[], int playerid){
 		this.cell=translateInputInformation(inputboard, playerid);
+	}*/
+	
+	@Override
+	int move(int[] board, int player) {
+	   //looking
+		this.cell=translateInputInformation(board, player);
+		return this.smartMove();
 	}
 	
 	private int cell[][];
@@ -160,28 +167,28 @@ int dangerline[]=new int[Constants.LINES];
 	}return needcell;
 	}
 	private int[][] translateInputInformation(int inputboard[], int playerid){ //translate information for my bot
-		
-		for(int i=0; i<inputboard.length;i++){
+		int inputboard1[] = inputboard.clone();
+		for(int i=0; i<inputboard1.length;i++){
 			if(playerid==1){
-				if(inputboard[i]==1){
-					inputboard[i]=Constants.X;
+				if(inputboard1[i]==1){
+					inputboard1[i]=Constants.X;
 				}
-					if(inputboard[i]==-1){
-						inputboard[i]=Constants.O;
+					if(inputboard1[i]==-1){
+						inputboard1[i]=Constants.O;
 				}
 			}
 			if(playerid==-1){
-				if(inputboard[i]==1){
-					inputboard[i]=Constants.O;
+				if(inputboard1[i]==1){
+					inputboard1[i]=Constants.O;
 				}
-					if(inputboard[i]==-1){
-						inputboard[i]=Constants.X;
+					if(inputboard1[i]==-1){
+						inputboard1[i]=Constants.X;
 				}
 			}
 		}
-		int cell[][]={{inputboard[0], inputboard[1],inputboard[2]},
-				      {inputboard[3], inputboard[4],inputboard[5]},
-				      {inputboard[6], inputboard[7],inputboard[8]}};
+		int cell[][]={{inputboard1[0], inputboard1[1],inputboard1[2]},
+				      {inputboard1[3], inputboard1[4],inputboard1[5]},
+				      {inputboard1[6], inputboard1[7],inputboard1[8]}};
 				      
 		return cell;
 	}
@@ -203,4 +210,6 @@ int dangerline[]=new int[Constants.LINES];
 		return result;
 		
 	}
+
+	
 }
