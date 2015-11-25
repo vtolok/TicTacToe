@@ -24,7 +24,6 @@ public class Game {
 					Game.playerID=playerID;
 				}
 				public static int getPlayerID (){
-					//System.out.println("###"+playerID);
 					return playerID;
 				}
 	
