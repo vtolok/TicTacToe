@@ -7,8 +7,26 @@ package com.goitjb4.projects.tictactoe;
 import java.util.Scanner;
 
 public class Entry {
-	/*
+	
 	public static void main(String[] args) {
+		
+		//===============AIRoman Calling Example====================
+		@SuppressWarnings("static-access")
+		int[] board = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		AbstractAI t = new AIRoman();
+
+		int counter = 0;
+
+		while (counter <= 9) {
+			++counter;
+			int player = 1;
+			if (counter % 2 == 0) {
+				player = -1;
+			}
+			((AIRoman) t).NextMove(player, board, t);
+		}
+		System.exit(0);
+		//===============AIRoman Calling Example====================
 		
 		System.out.println("A tic-tac-toe game!\n");// WELCOME
 		
@@ -26,7 +44,7 @@ public class Entry {
 			
 <<<<<<< HEAD
 		System.out.println("Thanks for the game!");//GOODBYE
-		}*/
+		}
 =======
 		System.out.println("\nThanks for the game!");//GOODBYE
 		}
