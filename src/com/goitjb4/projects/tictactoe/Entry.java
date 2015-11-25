@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Entry {
 	
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		
 		//===============AIRoman Calling Example====================
