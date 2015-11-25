@@ -11,7 +11,7 @@ public class Entry {
 	public static void main(String[] args) {
 		
 		//===============AIRoman Calling Example====================
-		@SuppressWarnings("static-access")
+		//@SuppressWarnings("static-access")
 		int[] board = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		AbstractAI t = new AIRoman();
 
@@ -25,10 +25,10 @@ public class Entry {
 			}
 			((AIRoman) t).NextMove(player, board, t);
 		}
-		System.exit(0);
+		//System.exit(0);
 		//===============AIRoman Calling Example====================
-		
-		System.out.println("A tic-tac-toe game!\n");// WELCOME
+
+		/*System.out.println("A tic-tac-toe game!\n");// WELCOME
 		
 		PlayerManager.selectPlayers();
 		
@@ -47,6 +47,6 @@ public class Entry {
 		}
 =======
 		System.out.println("\nThanks for the game!");//GOODBYE
-		}
->>>>>>> 6b25df660e4fc1613f0415ec72e700cab5bd0407
+*/		}
+//>>>>>>> 6b25df660e4fc1613f0415ec72e700cab5bd0407
 	}
