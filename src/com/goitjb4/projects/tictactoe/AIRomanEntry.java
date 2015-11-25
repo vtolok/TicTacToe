@@ -1,4 +1,4 @@
-package com.goitjb4.projects.tictactoe;
+
 public class AIRomanEntry {
 
 	@SuppressWarnings("static-access")
