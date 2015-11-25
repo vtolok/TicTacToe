@@ -46,6 +46,7 @@ public class Game {
 			else
 				playerID=PlayerManager.PLAYER2INT;
 		} while ((temp!=1)&&(temp!=2));
+		System.out.print("\n");
 	}
 
 	//***************************************************************************************************************************************
@@ -62,11 +63,15 @@ public class Game {
 		DisplayBoard.draw();
 		
 		if (checkVictory(playerID)){
-			System.out.println("Victory!!! Congratulations!");
+			String name="";
+			if (Game.getPlayerID()==PlayerManager.PLAYER1INT)
+				name=PlayerManager.Player1Name;
+			else
+				name=PlayerManager.Player2Name;
+			System.out.printf("Victory for %s! Congratulations!", name);
 			victoryFlag=true;//	VICTORY, FINISH PROGRAM
 			return;
 		}
-		
 		switchPlayer();
 	}
 	

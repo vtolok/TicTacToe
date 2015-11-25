@@ -24,6 +24,6 @@ public class Entry {
 			Game.makeMove(PlayerManager.selectHumanOrAI(Game.getBoard(), Game.getPlayerID()),Game.getPlayerID());
 		}while (Game.getVictoryFlag()==false);// VICTORY CONDITION CHECK
 			
-		System.out.println("Thanks for the game!");//GOODBYE
+		System.out.println("\nThanks for the game!");//GOODBYE
 		}
 	}
