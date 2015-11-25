@@ -1,16 +1,13 @@
 package com.goitjb4.projects.tictactoe;
 
 
-public class AnteBot extends AbstractAI{
+public class AIAnton extends AbstractAI{
 	
-	/*AnteBot(int inputboard[], int playerid){
-		this.cell=translateInputInformation(inputboard, playerid);
-	}*/
 	private int cell[][];
 	
 	@Override
 	int move(int[] board, int player) {
-	   //looking
+	   
 		this.cell=translateInputInformation(board, player);
 		return this.smartMove();
 	}

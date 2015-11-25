@@ -118,12 +118,10 @@ public class PlayerManager {
 						break;
 					case "ANTON'S AI":
 //<<<<<<< HEAD
-						//move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());
-						AbstractAI t1 = new AnteBot();
-						move=t1.move(board, Game.getPlayerID());
-						//move=new AnteBot().move(board, Game.getPlayerID());// It's Alive!!! ALIVE!!!!!!!!!
-//=======
-						move=new AnteBot().move(board, Game.getPlayerID());// It's Alive!!! ALIVE!!!!!!!!!
+					
+						AbstractAI a = new AIAnton();
+						move=a.move(board, Game.getPlayerID());
+						 
 //>>>>>>> 47923c089211c70e687397eddd983b26f40acd91
 						break;
 					case "CONSTANTIN'S AI":
