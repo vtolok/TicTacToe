@@ -109,13 +109,13 @@ public class PlayerManager {
 	}
 	
 	public static int selectHumanOrAI (int [] board, int playerID){// SELECT BETWEEN HUMAN AND AI CALSS to ADRESS the next MOVE
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		int move=0;
 		
 		if (playerID==PLAYER1INT){
-=======
+//=======
 		int move=10;// if no move is RETURNED, the "out Of Bounds" Exception will appear
->>>>>>> 6b25df660e4fc1613f0415ec72e700cab5bd0407
+//>>>>>>> 6b25df660e4fc1613f0415ec72e700cab5bd0407
 			if (Player1IsAI==false)
 				move=HumanPlayer.IAmHuman(board, Game.getPlayerID());
 			else
