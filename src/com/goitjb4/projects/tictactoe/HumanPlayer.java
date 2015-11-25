@@ -12,17 +12,17 @@ public class HumanPlayer {
 	public static void setPlayer (int playerID){// SETS playr's names + designates his/her figures
 		System.out.print("Please set Player ");
 		if (playerID==1)
-			System.out.printf("%c NAME: ",PlayerManager.PLAYER1CHAR);
+			System.out.printf("%c NAME: ",Constants.PLAYER_1_CHAR);
 		else
-			System.out.printf("%c NAME: ",PlayerManager.PLAYER2CHAR);
+			System.out.printf("%c NAME: ",Constants.PLAYER_2_CHAR);
 		Scanner kb = new Scanner (System.in);
 		
 		if (playerID==1){
 			PlayerManager.Player1Name=kb.next();
-			System.out.println(PlayerManager.Player1Name+" - is playing \""+PlayerManager.PLAYER1CHAR+"\"\n");
+			System.out.println(PlayerManager.Player1Name+" - is playing \""+Constants.PLAYER_1_CHAR+"\"\n");
 		}else{
 			PlayerManager.Player2Name=kb.next();
-			System.out.println(PlayerManager.Player2Name+" - is playing \""+PlayerManager.PLAYER2CHAR+"\"\n");
+			System.out.println(PlayerManager.Player2Name+" - is playing \""+Constants.PLAYER_2_CHAR+"\"\n");
 		}
 	}
 	

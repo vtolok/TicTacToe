@@ -8,9 +8,7 @@ import java.util.Scanner;
 
 public class Game {
 	
-	
-	public static final int BOARDSIZE=9;
-	private static int [] masterBoard = new int [BOARDSIZE];
+	private static int [] masterBoard = new int [Constants.BOARD_SIZE];
 	public static int [] getBoard(){
 		return masterBoard;
 	}
@@ -25,14 +23,13 @@ public class Game {
 				public static void setPlayerID (int playerID){
 					Game.playerID=playerID;
 				}
-				
 				public static int getPlayerID (){
 					//System.out.println("###"+playerID);
 					return playerID;
 				}
 	
 	public static void zeroBoard(){// set board to all-0
-			for (int i=0;i<BOARDSIZE;i++)
+			for (int i=0;i<Constants.BOARD_SIZE;i++)
 				masterBoard[i]=0;
 	}
 	
@@ -40,13 +37,14 @@ public class Game {
 		int temp;
 		Scanner choice = new Scanner (System.in);
 		do {
-			System.out.printf("Choose a player to move first:\n(1) - Player %c, (2) - Player %c: ",PlayerManager.PLAYER1CHAR,PlayerManager.PLAYER2CHAR);
+			System.out.printf("Choose a player to move first:\n(1) - Player %c, (2) - Player %c: ",Constants.PLAYER_1_CHAR,Constants.PLAYER_2_CHAR);
 			temp = choice.nextInt();
 			if (temp==1)
-				playerID=PlayerManager.PLAYER1INT;
+				playerID=Constants.PLAYER_1_INT;
 			else
-				playerID=PlayerManager.PLAYER2INT;
+				playerID=Constants.PLAYER_2_INT;
 		} while ((temp!=1)&&(temp!=2));
+		System.out.print("\n");
 	}
 
 	//***************************************************************************************************************************************
@@ -63,23 +61,26 @@ public class Game {
 		DisplayBoard.draw();
 		
 		if (checkVictory(playerID)){
-			System.out.println("Victory!!! Congratulations!");
+			String name="";
+			if (Game.getPlayerID()==Constants.PLAYER_1_INT)
+				name=PlayerManager.Player1Name;
+			else
+				name=PlayerManager.Player2Name;
+			System.out.printf("Victory for %s! Congratulations!", name);
 			victoryFlag=true;//	VICTORY, FINISH PROGRAM
 			return;
 		}
-		
 		switchPlayer();
 	}
 	
 	///////////////////////////////////////utility methods - for makeMove:
-	
 	private static void switchPlayer(){// SWiTCH TO NEXT PLAYER
 		System.out.println("The end of turn!\n***");
-		if (playerID==PlayerManager.PLAYER1INT){
-			playerID=PlayerManager.PLAYER2INT;
+		if (playerID==Constants.PLAYER_1_INT){
+			playerID=Constants.PLAYER_2_INT;
 		}else
-			if(playerID==PlayerManager.PLAYER2INT){
-				playerID=PlayerManager.PLAYER1INT;
+			if(playerID==Constants.PLAYER_2_INT){
+				playerID=Constants.PLAYER_1_INT;
 			}
 			else
 				System.out.println("Fuck! The system should've switched player - but failed to do do miserably!");
