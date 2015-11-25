@@ -3,7 +3,7 @@
 public class EntryAI {
 
 	//@SuppressWarnings("static-access")
-	public static void main(String[] args) {
+	public static void main1(String[] args) {
 		/*int[] board = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		AbstractAI t = new AIRoman();
 
