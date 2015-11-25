@@ -6,6 +6,9 @@ package com.goitjb4.projects.tictactoe;
 
 import java.util.Scanner;
 
+import com.goitjb4.projects.rom.RomUtils;
+
+
 public class PlayerManager {
 	
 	public static final String PLAYER1="Player 1";
@@ -106,13 +109,16 @@ public class PlayerManager {
 	
 	public static int selectHumanOrAI (int [] board, int playerID){// SELECT BETWEEN HUMAN AND AI CALSS to ADRESS the next MOVE
 		int move=0;
+		
 		if (playerID==PLAYER1INT){
 			if (Player1IsAI==false)
 				move=HumanPlayer.IAmHuman(board, Game.getPlayerID());
 			else
 				switch (Player1Name){
 					case "ROMAN'S AI":
-						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!
+						//move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!
+						//System.out.println("!!!"+Game.getPlayerID());
+						move= RomUtils.move(board, 1/*Game.getPlayerID()*/);
 						break;
 					case "ANTON'S AI":
 //<<<<<<< HEAD

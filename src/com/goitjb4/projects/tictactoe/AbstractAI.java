@@ -1,6 +1,5 @@
-
-public abstract class TicaTacToe {
-	
+package com.goitjb4.projects.tictactoe;
+public abstract class AbstractAI {
 	
 	abstract int move(int player, int[] board);
 
@@ -10,6 +9,4 @@ public abstract class TicaTacToe {
 		}
 	}
 	
-
-
 }

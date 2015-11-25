@@ -7,7 +7,7 @@ package com.goitjb4.projects.tictactoe;
 import java.util.Scanner;
 
 public class Entry {
-	
+	/*
 	public static void main(String[] args) {
 		
 		System.out.println("A tic-tac-toe game!\n");// WELCOME
@@ -25,5 +25,5 @@ public class Entry {
 		}while (Game.getVictoryFlag()==false);// VICTORY CONDITION CHECK
 			
 		System.out.println("Thanks for the game!");//GOODBYE
-		}
+		}*/
 	}
