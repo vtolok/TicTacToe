@@ -1,4 +1,5 @@
 package com.goitjb4.projects.tictactoe;
+
 public abstract class AbstractAI {
 	
 	abstract int move(int[] board, int player);

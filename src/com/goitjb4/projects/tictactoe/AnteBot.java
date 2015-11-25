@@ -1,5 +1,6 @@
 package com.goitjb4.projects.tictactoe;
 
+
 public class AnteBot {
 	
 	AnteBot(int inputboard[], int playerid){

@@ -1,5 +1,7 @@
+package com.goitjb4.projects.tictactoe;
 
-//public class AIRomanEntry {
+
+public class AIRomanEntry {
 
 //	@SuppressWarnings("static-access")
 	//public static void main1(String[] args) {
@@ -20,6 +22,6 @@
 			((AIRoman) t).NextMove(player, board, t);
 		}*/
 
-	//}
+	}
 
 //}

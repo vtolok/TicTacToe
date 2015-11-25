@@ -1,3 +1,5 @@
+package com.goitjb4.projects.tictactoe;
+public class EntryAI {
 //
 //
 //public class EntryAI {
@@ -22,3 +24,4 @@
 //	}
 //
 //}
+}
