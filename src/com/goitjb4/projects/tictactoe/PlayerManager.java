@@ -26,7 +26,7 @@ public class PlayerManager {
 	public static void selectPlayers(){// SELECTING HUMAN OR CPU PLAYERS 									
 		do{
 			Game.setPlayerID (PLAYER1INT);// PLAYER 1
-			System.out.printf("Select player %c:\n(1) - Human, (2) - CPU", PLAYER1CHAR);
+			System.out.printf("Select player %c:\n(1) - Human, (2) - CPU:  ", PLAYER1CHAR);
 			ctrl=key.nextInt();
 			}while((ctrl!=1)&&(ctrl!=2));
 			
@@ -40,7 +40,7 @@ public class PlayerManager {
 			
 		do{
 			Game.setPlayerID (PLAYER2INT);// PLAYER 2
-			System.out.printf("Select player %c:\n(1) - Human, (2) - CPU",PLAYER2CHAR);
+			System.out.printf("Select player %c:\n(1) - Human, (2) - CPU: ",PLAYER2CHAR);
 			ctrl=key.nextInt();
 		}while((ctrl!=1)&&(ctrl!=2));
 			
@@ -63,26 +63,26 @@ public class PlayerManager {
 			else
 				System.out.printf("%c: ",PLAYER2CHAR);
 			
-			System.out.println("select the AI:\n(1) - ROMAN, (2) - ANTON, (3) - CONSTANTIN, (0) - NO CPU, return");
-			String AIName="noname";
+			System.out.print("select the AI:\n(1) - ROMAN, (2) - ANTON, (3) - CONSTANTIN, (0) - NO CPU, return: ");
+			String AIName="nobody";
 			
 			ctrl=key.nextInt();
 			if (ctrl==1)
 				AIName="ROMAN'S AI";
 			if (ctrl==2)
 				AIName="ANTON'S AI";
-			if (ctrl==2)
+			if (ctrl==3)
 				AIName="CONSTANTIN'S AI";
 
 			if (playerID==PLAYER1INT){
 				PlayerManager.Player1Name=AIName;
-				System.out.println("\n"+AIName+" - is playing \""+PlayerManager.PLAYER1CHAR+"\"\n");
+				System.out.println(AIName+" - is playing \""+PlayerManager.PLAYER1CHAR+"\"\n");
 			}else{
 				PlayerManager.Player2Name=AIName;
-				System.out.println("\n"+AIName+" - is playing \""+PlayerManager.PLAYER2CHAR+"\"\n");
+				System.out.println(AIName+" - is playing \""+PlayerManager.PLAYER2CHAR+"\"\n");
 			}
 			if (ctrl==0)
-				selectPlayers();// Рекурсия для выбора игрока заново - РАБОТАЕТ ЛИ?
+				selectPlayers();
 			
 		}while((ctrl!=1)&&(ctrl!=2)&&(ctrl!=3)&&(ctrl!=0));
 		ctrl=0;//RESET ctrl
@@ -91,10 +91,10 @@ public class PlayerManager {
 	
 	public static void tellPlayer(){// SHOWS WHICH PLAYE'S MOVE IS BEinG MADE
 	if (Game.getPlayerID()==PlayerManager.PLAYER1INT)
-		System.out.printf("It is now "+PlayerManager.Player1Name+" (Player %c)'s turn\n",PLAYER1CHAR);
+		System.out.printf("It is now "+PlayerManager.Player1Name+" (Player %c)'s turn:\n",PLAYER1CHAR);
 	else{
 		if (Game.getPlayerID()==PlayerManager.PLAYER2INT) 
-		System.out.printf("It is now "+PlayerManager.Player2Name+" (Player %c)'s turn\n",PLAYER2CHAR);
+		System.out.printf("It is now "+PlayerManager.Player2Name+" (Player %c)'s turn:\n",PLAYER2CHAR);
 		else
 			System.out.println("Fuck... system is confused! Whose turn was that, again?");
 		}
@@ -104,32 +104,32 @@ public class PlayerManager {
 		int move=0;
 		if (playerID==PLAYER1INT){
 			if (Player1IsAI==false)
-				move=HumanPlayer.IAmHuman(board);
+				move=HumanPlayer.IAmHuman(board, Game.getPlayerID());
 			else
 				switch (Player1Name){
 					case "ROMAN'S AI":
-						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!
+						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!
 						break;
 					case "ANTON'S AI":
-						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH ANTON'S AI CALLING METHOD!!!!
+						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH ANTON'S AI CALLING METHOD!!!!
 						break;
 					case "CONSTANTIN'S AI":
-						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH CONSTATIN'S AI CALLING METHOD!!!!
+						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH CONSTATIN'S AI CALLING METHOD!!!!
 						break;	
 				};
 		}else{
 			if (Player1IsAI==false)
-				move=HumanPlayer.IAmHuman(board);
+				move=HumanPlayer.IAmHuman(board, Game.getPlayerID());
 			else
 				switch (Player1Name){
 					case "ROMAN'S AI":
-						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!!
+						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!!
 						break;
 					case "ANTON'S AI":
-						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH ANTON'S AI CALLING METHOD!!!!
+						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH ANTON'S AI CALLING METHOD!!!!
 						break;
 					case "CONSTANTIN'S AI":
-						move=CPUDummyPlug.IAmCPU(board);// *************REPLACE WITH CONSTATIN'S AI CALLING METHOD!!!!
+						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH CONSTATIN'S AI CALLING METHOD!!!!
 						break;	
 				};
 		}

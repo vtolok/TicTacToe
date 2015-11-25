@@ -39,7 +39,7 @@ public class Game {
 		int temp;
 		Scanner choice = new Scanner (System.in);
 		do {
-			System.out.printf("Choose a player to move first:\n(1) - Player %c, (2) - Player %c",PlayerManager.PLAYER1CHAR,PlayerManager.PLAYER2CHAR);
+			System.out.printf("Choose a player to move first:\n(1) - Player %c, (2) - Player %c: ",PlayerManager.PLAYER1CHAR,PlayerManager.PLAYER2CHAR);
 			temp = choice.nextInt();
 			if (temp==1)
 				playerID=PlayerManager.PLAYER1INT;
