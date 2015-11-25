@@ -1,11 +1,13 @@
 
-public class AIRomanEntry {
+//public class AIRomanEntry {
 
-	@SuppressWarnings("static-access")
-	public static void main1(String[] args) {
+//	@SuppressWarnings("static-access")
+	//public static void main1(String[] args) {
 
-		int[] board = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		/*int[] board = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		AbstractAI t = new AIRoman();
+		int player;
+		t.move(board, player);
 
 		int counter = 0;
 
@@ -16,8 +18,8 @@ public class AIRomanEntry {
 				player = -1;
 			}
 			((AIRoman) t).NextMove(player, board, t);
-		}
+		}*/
 
-	}
+	//}
 
-}
+//}

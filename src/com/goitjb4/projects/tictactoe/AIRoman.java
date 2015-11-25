@@ -52,7 +52,7 @@ public class AIRoman extends AbstractAI {
 	}
 
 	@Override
-	public int move(int player, int[] board) {
+	public int move( int[] board, int player) {
 
 		int[] inputBoard = board.clone();
 		int countFillCells = countOfFillCells(board);
@@ -158,7 +158,7 @@ public class AIRoman extends AbstractAI {
 
 	public static int move(int[] board, int player, AbstractAI t) {
 		int[] param = board.clone();
-		return t.move(player, param);
+		return t.move( param, player);
 
 	}
 
@@ -167,7 +167,7 @@ public class AIRoman extends AbstractAI {
 
 		int resIndex;
 
-		resIndex = ticTacImpls.move(player, param);
+		resIndex = ticTacImpls.move(param, player);
 		if ((resIndex >= 0) && (board[resIndex] == 0)) {
 			board[resIndex] = player;
 			ShowTheBoard(board);

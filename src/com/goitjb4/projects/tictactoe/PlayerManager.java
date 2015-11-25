@@ -6,8 +6,6 @@ package com.goitjb4.projects.tictactoe;
 
 import java.util.Scanner;
 
-import com.goitjb4.projects.rom.RomUtils;
-
 
 public class PlayerManager {
 	
@@ -109,13 +107,7 @@ public class PlayerManager {
 	}
 	
 	public static int selectHumanOrAI (int [] board, int playerID){// SELECT BETWEEN HUMAN AND AI CALSS to ADRESS the next MOVE
-//<<<<<<< HEAD
-		int move=0;
-		
-		if (playerID==PLAYER1INT){
-//=======
-		int move=10;// if no move is RETURNED, the "out Of Bounds" Exception will appear
-//>>>>>>> 6b25df660e4fc1613f0415ec72e700cab5bd0407
+			int move=10;// if no move is RETURNED, the "out Of Bounds" Exception will appear
 			if (Player1IsAI==false)
 				move=HumanPlayer.IAmHuman(board, Game.getPlayerID());
 			else
@@ -123,7 +115,9 @@ public class PlayerManager {
 					case "ROMAN'S AI":
 						//move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());// *************REPLACE WITH ROMA'S AI CALLING METHOD!!!
 						//System.out.println("!!!"+Game.getPlayerID());
-						move= RomUtils.move(board, 1/*Game.getPlayerID()*/);
+						//move= AIRoman.move(board, 1/*Game.getPlayerID()*/);
+						AbstractAI t = new AIRoman();
+						t.move(board, Game.getPlayerID());
 						break;
 					case "ANTON'S AI":
 						move=CPUDummyPlug.IAmCPU(board, Game.getPlayerID());
