@@ -14,8 +14,12 @@ public class Game {
 	}
 	
 	private static boolean endFlag=false;
+	
 	public static boolean getEndFlag (){
 		return endFlag;
+	}
+	public static  void setEndFlag (boolean Flag){
+		endFlag=Flag;
 	}
 	
 			private static int playerID=0;// we use this in to pass info to other methods about which player is in current context
@@ -50,7 +54,7 @@ public class Game {
 	
 	public static void makeMove(int move, int playerID){ //receives a move and puts it on a board
 		
-		if (checkLegalMove(move)){//ILLEGAL MOVE, RETRY 
+		if (checkIllegalMove(move)){//ILLEGAL MOVE, RETRY 
 			System.out.print("Oops! That move is illegal! Try again:!");
 			return;
 		}
@@ -91,7 +95,9 @@ public class Game {
 				System.out.println("Fuck! The system should've switched player - but failed to do do miserably!");
 	}
 	
-	private static boolean checkLegalMove(int move){//for checking if the move was legal
+	private static boolean checkIllegalMove(int move){//for checking if the move was legal
+		if ((move<0)&&(move>8))
+			return true;
 		if (masterBoard[move]==0)// ASSUMES  "MOVE int" is in 0-8 range
 			return false;
 		return true;
