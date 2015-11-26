@@ -42,7 +42,7 @@ public class AIKoss extends AbstractAI {
 	public int move(int[] board, int player) {
 		this.board = Arrays.copyOf(board, BOARD_SIZE);
 		int res = -1;
-		if (isEmpty()) {
+		if (isBoardEmpty()) {
 			res = (int) (Math.random() * BOARD_SIZE);
 		} else {
 			Node node = minimax(player);
@@ -51,7 +51,7 @@ public class AIKoss extends AbstractAI {
 		return res;
 	}
 
-	private boolean isEmpty() {
+	private boolean isBoardEmpty() {
 		for (int i = 0; i < board.length; i++) {
 			if (board[i] != 0)
 				return false;
@@ -59,7 +59,7 @@ public class AIKoss extends AbstractAI {
 		return true;
 	}
 
-	private boolean isFull() {
+	private boolean isBoardFull() {
 		for (int i = 0; i < board.length; i++) {
 			if (board[i] == 0)
 				return false;
@@ -84,7 +84,7 @@ public class AIKoss extends AbstractAI {
 			return PLAYER_X_WON;
 		} else if (win == PLAYER_O) {
 			return PLAYER_O_WON;
-		} else if (isFull()) {
+		} else if (isBoardFull()) {
 			return DRAWN_GAME;
 		} else
 			return 0;
