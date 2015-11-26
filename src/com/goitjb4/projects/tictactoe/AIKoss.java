@@ -11,15 +11,14 @@ public class AIKoss extends AbstractAI {
 	private static final int DRAWN_GAME = 3;
 	private static final int PLAYER_O_WON = 2;
 	
-	private static final int[][] WIN_PATTERNS = {
-			{ 0, 1, 2 }, // Row 1
-			{ 3, 4, 5 }, // Row 2
-			{ 6, 7, 8 }, // Row 3
-			{ 0, 3, 6 }, // Column 1
-			{ 1, 4, 7 }, // Column 2
-			{ 2, 5, 8 }, // Column 3
-			{ 0, 4, 8 }, // Diagonal 1
-			{ 2, 4, 6 }, // Diagonal 2
+	private static final int[][] WIN_PATTERNS = { { 0, 1, 2 }, // Row 1
+												  { 3, 4, 5 }, // Row 2
+												  { 6, 7, 8 }, // Row 3
+												  { 0, 3, 6 }, // Column 1
+												  { 1, 4, 7 }, // Column 2
+												  { 2, 5, 8 }, // Column 3
+												  { 0, 4, 8 }, // Diagonal 1
+												  { 2, 4, 6 }  // Diagonal 2
 	};
 
 	private class Node {
