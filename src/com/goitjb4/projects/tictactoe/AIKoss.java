@@ -47,7 +47,7 @@ public class AIKoss extends AbstractAI {
 		this.board = Arrays.copyOf(board, BOARD_SIZE);
 		int res = -1;
 		if (isEmpty()) {
-			res = (int) (Math.random() * BOARD_SIZE);
+			res = 4; //(int) (Math.random() * BOARD_SIZE);
 		} else {
 			Node node = minimax(player);
 			res = node.index;
