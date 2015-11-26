@@ -5,23 +5,21 @@ import java.util.Arrays;
 public class AIKoss extends AbstractAI {
 
 	private static final int BOARD_SIZE = 9;
-
 	private static final int PLAYER_X = 1;
 	private static final int PLAYER_O = -1;
-
 	private static final int PLAYER_X_WON = 4;
 	private static final int DRAWN_GAME = 3;
 	private static final int PLAYER_O_WON = 2;
-
-	private static final int[][] WIN_PATTERNS = { //
-			{ 0, 1, 2 }, // ROW1
-			{ 3, 4, 5 }, // ROW2
-			{ 6, 7, 8 }, // ROW3
-			{ 0, 3, 6 }, // COL1
-			{ 1, 4, 7 }, // COL2
-			{ 2, 5, 8 }, // COL3
-			{ 0, 4, 8 }, // DIAGONAL1
-			{ 2, 4, 6 }, // DIAGONAL2
+	
+	private static final int[][] WIN_PATTERNS = {
+			{ 0, 1, 2 }, // Row 1
+			{ 3, 4, 5 }, // Row 2
+			{ 6, 7, 8 }, // Row 3
+			{ 0, 3, 6 }, // Column 1
+			{ 1, 4, 7 }, // Column 2
+			{ 2, 5, 8 }, // Column 3
+			{ 0, 4, 8 }, // Diagonal 1
+			{ 2, 4, 6 }, // Diagonal 2
 	};
 
 	private class Node {
@@ -30,8 +28,6 @@ public class AIKoss extends AbstractAI {
 		public int index;
 
 		public Node() {
-			this.score = 0;
-			this.index = 0;
 		}
 
 		public Node(int score, int index) {
@@ -39,7 +35,7 @@ public class AIKoss extends AbstractAI {
 			this.index = index;
 		}
 	}
-
+	
 	private int[] board = new int[BOARD_SIZE];
 
 	@Override
@@ -73,7 +69,7 @@ public class AIKoss extends AbstractAI {
 
 	private int getWin() {
 		for (int i = 0; i < WIN_PATTERNS.length; i++) {
-			if (board[WIN_PATTERNS[i][0]] != 0	
+			if (board[WIN_PATTERNS[i][0]] != 0 
 					&& board[WIN_PATTERNS[i][0]] == board[WIN_PATTERNS[i][1]]
 					&& board[WIN_PATTERNS[i][0]] == board[WIN_PATTERNS[i][2]]) {
 				return board[WIN_PATTERNS[i][0]];
@@ -114,5 +110,5 @@ public class AIKoss extends AbstractAI {
 		}
 		return best;
 	}
-
+	
 }
