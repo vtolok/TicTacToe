@@ -106,12 +106,14 @@ public class PlayerManager {
 		}
 	}
 	
-	public static int selectHumanOrAI (int [] board, int playerID){// SELECT BETWEEN HUMAN AND AI CALSS to ADRESS the next MOVE
+	public static int selectHumanOrAI(int[] board, int playerID) {// SELECT BETWEEN HUMAN AND AI CALSS to ADRESS the next MOVE
 		int move = 10;// if no move is RETURNED, the "out Of Bounds" Exception will appear
-		if (Player1IsAI == false)
+		if (((Game.getPlayerID() == Constants.PLAYER_1_INT) && (Player1IsAI == false)) 
+				|| ((Game.getPlayerID() == Constants.PLAYER_2_INT) && (Player2IsAI == false))) {
 			move = HumanPlayer.IAmHuman(board, Game.getPlayerID());
-		else
-			switch (Player1Name) {
+		} else {
+			String currentPlayerName = (Game.getPlayerID() == Constants.PLAYER_1_INT) ? Player1Name : Player2Name;   
+			switch (currentPlayerName) {
 			case "ROMAN'S AI":
 				AbstractAI t = new AIRoman();
 				move = t.move(board, Game.getPlayerID());
@@ -125,7 +127,7 @@ public class PlayerManager {
 				move = kossAI.move(board, Game.getPlayerID());
 				break;
 			}
-		;
+		}
 		return move;
 	}
 }

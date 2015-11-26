@@ -95,13 +95,13 @@ public class Game {
 				System.out.println("Fuck! The system should've switched player - but failed to do do miserably!");
 	}
 	
-	private static boolean checkIllegalMove(int move){//for checking if the move was legal
-		if ((move<0)&&(move>8))
+	private static boolean checkIllegalMove(int move) { // for checking if the move was legal
+		if ((move < 0) || (move > 8))
 			return true;
-		if (masterBoard[move]==0)// ASSUMES  "MOVE int" is in 0-8 range
+		if (masterBoard[move] == 0) // ASSUMES "MOVE int" is in 0-8 range
 			return false;
 		return true;
-		}
+	}
 	
 	private static boolean checkVictory (int playerID){// for checking if a victory has been achieved
 		boolean victory=false;
