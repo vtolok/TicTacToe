@@ -117,15 +117,12 @@ public class PlayerManager {
 						move=t.move(board, Game.getPlayerID());
 						break;
 					case "ANTON'S AI":
-//<<<<<<< HEAD
-					
 						AbstractAI a = new AIAnton();
 						move=a.move(board, Game.getPlayerID());
-						 
-//>>>>>>> 47923c089211c70e687397eddd983b26f40acd91
 						break;
 					case "CONSTANTIN'S AI":
-						// *************REPLACE WITH CONSTATIN'S AI CALLING METHOD!!!!
+						AbstractAI kossAI = new AIKoss();
+						move = kossAI.move(board, Game.getPlayerID());
 						break;	
 				};
 		return move;
