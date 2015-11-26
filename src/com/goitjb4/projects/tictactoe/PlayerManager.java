@@ -107,24 +107,25 @@ public class PlayerManager {
 	}
 	
 	public static int selectHumanOrAI (int [] board, int playerID){// SELECT BETWEEN HUMAN AND AI CALSS to ADRESS the next MOVE
-			int move=10;// if no move is RETURNED, the "out Of Bounds" Exception will appear
-			if (Player1IsAI==false)
-				move=HumanPlayer.IAmHuman(board, Game.getPlayerID());
-			else
-				switch (Player1Name){
-					case "ROMAN'S AI":
-						AbstractAI t = new AIRoman();
-						move=t.move(board, Game.getPlayerID());
-						break;
-					case "ANTON'S AI":
-						AbstractAI a = new AIAnton();
-						move=a.move(board, Game.getPlayerID());
-						break;
-					case "CONSTANTIN'S AI":
-						AbstractAI kossAI = new AIKoss();
-						move = kossAI.move(board, Game.getPlayerID());
-						break;	
-				};
+		int move = 10;// if no move is RETURNED, the "out Of Bounds" Exception will appear
+		if (Player1IsAI == false)
+			move = HumanPlayer.IAmHuman(board, Game.getPlayerID());
+		else
+			switch (Player1Name) {
+			case "ROMAN'S AI":
+				AbstractAI t = new AIRoman();
+				move = t.move(board, Game.getPlayerID());
+				break;
+			case "ANTON'S AI":
+				AbstractAI a = new AIAnton();
+				move = a.move(board, Game.getPlayerID());
+				break;
+			case "CONSTANTIN'S AI":
+				AbstractAI kossAI = new AIKoss();
+				move = kossAI.move(board, Game.getPlayerID());
+				break;
+			}
+		;
 		return move;
 	}
 }

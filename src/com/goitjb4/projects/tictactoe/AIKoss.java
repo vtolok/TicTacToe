@@ -26,16 +26,16 @@ public class AIKoss extends AbstractAI {
 
 	private class Node {
 
-		public int best;
+		public int score;
 		public int index;
 
 		public Node() {
-			this.best = 0;
+			this.score = 0;
 			this.index = 0;
 		}
 
-		public Node(int best, int index) {
-			this.best = best;
+		public Node(int score, int index) {
+			this.score = score;
 			this.index = index;
 		}
 	}
@@ -47,7 +47,7 @@ public class AIKoss extends AbstractAI {
 		this.board = Arrays.copyOf(board, BOARD_SIZE);
 		int res = -1;
 		if (isEmpty()) {
-			res = 4; //(int) (Math.random() * BOARD_SIZE);
+			res = (int) (Math.random() * BOARD_SIZE);
 		} else {
 			Node node = minimax(player);
 			res = node.index;
@@ -99,20 +99,20 @@ public class AIKoss extends AbstractAI {
 		if (end != 0) {
 			return new Node(end, 0);
 		}
-		Node res = new Node();
-		res.best = (player == PLAYER_X) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+		Node best = new Node();
+		best.score = (player == PLAYER_X) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
 		for (int i = 0; i < board.length; i++) {
 			if (board[i] == 0) {
 				board[i] = player;
 				Node opp = minimax(-player);
 				board[i] = 0;
-				if ((player * opp.best) > (player * res.best)) {
-					res.index = i;
-					res.best = opp.best;
+				if ((player * opp.score) > (player * best.score)) {
+					best.index = i;
+					best.score = opp.score;
 				}
 			}
 		}
-		return res;
+		return best;
 	}
 
 }
