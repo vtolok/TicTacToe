@@ -1,8 +1,6 @@
 package com.goitjb4.projects.tictactoe;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class AIKoss extends AbstractAI {
 
@@ -27,7 +25,7 @@ public class AIKoss extends AbstractAI {
 	};
 
 	private class Node {
-		
+
 		public int best;
 		public int index;
 
@@ -75,7 +73,7 @@ public class AIKoss extends AbstractAI {
 
 	private int getWin() {
 		for (int i = 0; i < WIN_PATTERNS.length; i++) {
-			if (board[WIN_PATTERNS[i][0]] != 0
+			if (board[WIN_PATTERNS[i][0]] != 0	
 					&& board[WIN_PATTERNS[i][0]] == board[WIN_PATTERNS[i][1]]
 					&& board[WIN_PATTERNS[i][0]] == board[WIN_PATTERNS[i][2]]) {
 				return board[WIN_PATTERNS[i][0]];
@@ -96,15 +94,6 @@ public class AIKoss extends AbstractAI {
 			return 0;
 	}
 
-	public List<Integer> getAvailableMoves() {
-		List<Integer> list = new ArrayList<>();
-		for (int i = 0; i < board.length; i++) {
-			if (board[i] == 0)
-				list.add(i);
-		}
-		return list;
-	}	
-	
 	private Node minimax(int player) {
 		int end = isGameOver();
 		if (end != 0) {
@@ -112,13 +101,15 @@ public class AIKoss extends AbstractAI {
 		}
 		Node res = new Node();
 		res.best = (player == PLAYER_X) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
-		for (int i : getAvailableMoves()) {
-			board[i] = player;
-			Node opp = minimax(-player);
-			board[i] = 0;
-			if ((player * opp.best) > (player * res.best)) {
-				res.index = i;
-				res.best = opp.best;
+		for (int i = 0; i < board.length; i++) {
+			if (board[i] == 0) {
+				board[i] = player;
+				Node opp = minimax(-player);
+				board[i] = 0;
+				if ((player * opp.best) > (player * res.best)) {
+					res.index = i;
+					res.best = opp.best;
+				}
 			}
 		}
 		return res;
