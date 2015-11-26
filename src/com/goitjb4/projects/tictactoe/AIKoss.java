@@ -73,7 +73,7 @@ public class AIKoss extends AbstractAI {
 		return true;
 	}
 
-	private int hetWin() {
+	private int getWin() {
 		for (int i = 0; i < WIN_PATTERNS.length; i++) {
 			if (board[WIN_PATTERNS[i][0]] != 0
 					&& board[WIN_PATTERNS[i][0]] == board[WIN_PATTERNS[i][1]]
@@ -85,7 +85,7 @@ public class AIKoss extends AbstractAI {
 	}
 
 	private int isGameOver() {
-		int win = hetWin();
+		int win = getWin();
 		if (win == PLAYER_X) {
 			return PLAYER_X_WON;
 		} else if (win == PLAYER_O) {
