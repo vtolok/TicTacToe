@@ -11,10 +11,10 @@ public class Constants {
 	public static final int DANGER_COUNT_OF_POINTS = 2; // danger count of points in line
 	public static final String NO_DANGER_CELLS = "Q"; //random constant for marking free cell
 	
-	public static final int PLAYER_1_INT=1;
-	public static final char PLAYER_1_CHAR='X';
-	public static final int PLAYER_2_INT=-1;
-	public static final char PLAYER_2_CHAR='O';
-	public static final int BOARD_SIZE=9;
+	public static final int PLAYER_1_INT=1;//player 1 always uses this int on boards
+	public static final char PLAYER_1_CHAR='X';//player 1 always plays with "X"
+	public static final int PLAYER_2_INT=-1;//player 2 always uses this int on boards
+	public static final char PLAYER_2_CHAR='O';//player 1 always plays with "0"
+	public static final int BOARD_SIZE=9;// nuff said
 	
 	}
