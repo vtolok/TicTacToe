@@ -7,14 +7,14 @@ public class AIRoman extends AbstractAI {
 
 	private static final int PLAYER_X = 1;
 	private static final int PLAYER_O = -1;
-	
-	private static final int RATIO = 100; 
+
+	private static final int RATIO = 100;
 	private static final int X_WIN = PLAYER_X * RATIO;
 	private static final int O_WIN = PLAYER_O * RATIO;
 	private static final int DRAW = 0;
 
 	private List<Abc> listWinLines = new ArrayList<Abc>();
-	private int[] inputBoard;
+	private int[] localBoard;
 
 	public AIRoman() {
 		listWinLines.add(new Abc(0, 1, 2));
@@ -32,8 +32,9 @@ public class AIRoman extends AbstractAI {
 
 	private boolean playerWin(int player) {
 		for (Abc e : listWinLines) {
-			if ((inputBoard[e.getA()] == player) && (inputBoard[e.getB()] == player)
-					&& (inputBoard[e.getC()] == player)) {
+			if ((localBoard[e.getA()] == player)
+					&& (localBoard[e.getB()] == player)
+					&& (localBoard[e.getC()] == player)) {
 				return true;
 			}
 		}
@@ -41,32 +42,31 @@ public class AIRoman extends AbstractAI {
 	}
 
 	@Override
-	 public int move(int[] board, int player) {
-		inputBoard = board.clone();
+	public int move(int[] board, int player) {
+		localBoard = board.clone();
 		int maxIndex = -1;
-		if (boardIsEmpty(inputBoard)) {
-			maxIndex = (int) (Math.random() * (inputBoard.length));
+		if (boardIsEmpty()) {
+			maxIndex = (int) (Math.random() * (localBoard.length));
 		} else {
-			int res = benefitsOfProgress(player, inputBoard, 0);
+			int res = benefitsOfProgress(player, 0);
 			maxIndex = res - cutOffMove(res);
 		}
 		return maxIndex;
 	}
 
-	
 	private int cutOffMove(int i) {
 		if (i == 0) {
 			return i;
 		}
 		return ((int) (i / RATIO)) * RATIO;
 	}
-	
-	private int benefitsOfProgress(int player, int[] board, int depth) {
+
+	private int benefitsOfProgress(int player, int depth) {
 		if (playerWin(PLAYER_X)) {
 			return X_WIN;
 		} else if (playerWin(PLAYER_O)) {
 			return O_WIN;
-		} else if (!canMove(board)) {
+		} else if (!canMove()) {
 			return DRAW;
 		}
 
@@ -76,38 +76,40 @@ public class AIRoman extends AbstractAI {
 		} else {
 			resVal = X_WIN;
 		}
-		for (int i = 0; i < board.length; i++) {
-			if (board[i] == 0) {
-				board[i] = player;
-				int enemyVal = benefitsOfProgress(-player, board, depth + 1);
-				//System.out.println("player = " + player + ", move = " + i + ", resVal = " + resVal + ", enemyVal = " + enemyVal + ", depth = " + depth);
+		for (int i = 0; i < localBoard.length; i++) {
+			if (localBoard[i] == 0) {
+				localBoard[i] = player;
+				int enemyVal = benefitsOfProgress(-player, depth + 1);
+				// System.out.println("player = " + player + ", move = " + i +
+				// ", resVal = " + resVal + ", enemyVal = " + enemyVal +
+				// ", depth = " + depth);
 				if (((player == PLAYER_X) && (cutOffMove(enemyVal) > cutOffMove(resVal)))
 						|| ((player == PLAYER_O) && (cutOffMove(enemyVal) < cutOffMove(resVal)))) {
 					resVal = cutOffMove(enemyVal);
 					if (resVal < 0) {
-						resVal -= i; 
+						resVal -= i;
 					} else {
 						resVal += i;
 					}
 				}
-				board[i] = 0;
+				localBoard[i] = 0;
 			}
 		}
 		return resVal;
 	}
 
-	private boolean boardIsEmpty(int[] board) {
-		for (int i = 0; i < board.length; i++) {
-			if (board[i] != 0)
+	private boolean boardIsEmpty() {
+		for (int i = 0; i < localBoard.length; i++) {
+			if (localBoard[i] != 0)
 				return false;
 		}
 		return true;
-	}	
-	
-	private boolean canMove(int[] board) {
+	}
 
-		for (int i = 0; i < board.length; i++) {
-			if (board[i] == 0)
+	private boolean canMove() {
+
+		for (int i = 0; i < localBoard.length; i++) {
+			if (localBoard[i] == 0)
 				return true;
 		}
 		return false;
