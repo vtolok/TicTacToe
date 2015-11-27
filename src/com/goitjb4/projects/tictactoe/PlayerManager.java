@@ -16,7 +16,8 @@ public class PlayerManager {
 	public  static String Player2Name = "";
 	private static boolean Player2IsAI;
 	
-	static int ctrl;
+	private static int ctrl;
+	private static int ctrlAI;
 	private static Scanner key=new Scanner (System.in);
 	
 	public static void selectPlayers(){// SELECTING HUMAN OR CPU PLAYERS 		
@@ -70,14 +71,12 @@ public class PlayerManager {
 			System.out.print("select the AI:\n(1) - ROMAN, (2) - ANTON, (3) - CONSTANTIN, (0) - NO CPU, return: ");
 			String AIName="nobody";
 			
-			ctrl=key.nextInt();
-			if (ctrl==1)
+			ctrlAI=key.nextInt();
+			if (ctrlAI==1)
 				AIName="ROMAN'S AI";
-			if (ctrl==2)
+			if (ctrlAI==2)
 				AIName="ANTON'S AI";
-
-			if (ctrl==3)
-
+			if (ctrlAI==3)
 				AIName="CONSTANTIN'S AI";
 
 			if (playerID==Constants.PLAYER_1_INT){
@@ -87,10 +86,10 @@ public class PlayerManager {
 				PlayerManager.Player2Name=AIName;
 				System.out.println(AIName+" - is playing \""+Constants.PLAYER_2_CHAR+"\"");
 			}
-			if (ctrl==0)
+			if (ctrlAI==0)
 				selectPlayers();
 			
-		}while((ctrl!=1)&&(ctrl!=2)&&(ctrl!=3)&&(ctrl!=0));
+		}while((ctrlAI!=1)&&(ctrlAI!=2)&&(ctrlAI!=3)&&(ctrlAI!=0));
 		ctrl=0;//RESET ctrl
 	}
 	
@@ -112,17 +111,17 @@ public class PlayerManager {
 				|| ((Game.getPlayerID() == Constants.PLAYER_2_INT) && (Player2IsAI == false))) {
 			move = HumanPlayer.IAmHuman(board, Game.getPlayerID());
 		} else {
-			String currentPlayerName = (Game.getPlayerID() == Constants.PLAYER_1_INT) ? Player1Name : Player2Name;   
-			switch (currentPlayerName) {
-			case "ROMAN'S AI":
+			//String currentPlayerName = (Game.getPlayerID() == Constants.PLAYER_1_INT) ? Player1Name : Player2Name;   
+			switch (ctrlAI) {
+			case 1:
 				AbstractAI t = new AIRoman();
 				move = t.move(board, Game.getPlayerID());
 				break;
-			case "ANTON'S AI":
+			case 2:
 				AbstractAI a = new AIAnton();
 				move = a.move(board, Game.getPlayerID());
 				break;
-			case "CONSTANTIN'S AI":
+			case 3:
 				AbstractAI kossAI = new AIKoss();
 				move = kossAI.move(board, Game.getPlayerID());
 				break;
