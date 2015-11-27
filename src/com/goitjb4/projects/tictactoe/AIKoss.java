@@ -53,16 +53,18 @@ public class AIKoss extends AbstractAI {
 
 	private boolean isBoardEmpty() {
 		for (int i = 0; i < board.length; i++) {
-			if (board[i] != 0)
+			if (board[i] != 0) {
 				return false;
+			}
 		}
 		return true;
 	}
 
 	private boolean isBoardFull() {
 		for (int i = 0; i < board.length; i++) {
-			if (board[i] == 0)
+			if (board[i] == 0) {
 				return false;
+			}
 		}
 		return true;
 	}
@@ -86,8 +88,9 @@ public class AIKoss extends AbstractAI {
 			return PLAYER_O_WON;
 		} else if (isBoardFull()) {
 			return DRAWN_GAME;
-		} else
+		} else {
 			return 0;
+		}
 	}
 
 	private Node minimax(int player) {
