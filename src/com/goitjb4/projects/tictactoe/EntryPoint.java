@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class EntryPoint {
 	
 	static int play=0;
-	static Scanner key=new Scanner (System.in);
+	private static Scanner key=new Scanner (System.in);
 	
 	public static void main (String args[] ){
  	System.out.println("A tic-tac-toe game!\n");// WELCOME

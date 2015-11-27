@@ -17,7 +17,7 @@ public class PlayerManager {
 	private static boolean Player2IsAI;
 	
 	static int ctrl;
-	static Scanner key=new Scanner (System.in);
+	private static Scanner key=new Scanner (System.in);
 	
 	public static void selectPlayers(){// SELECTING HUMAN OR CPU PLAYERS 		
 		do{// SELECT 1 of 3 GAME TYPES
