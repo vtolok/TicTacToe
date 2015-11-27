@@ -68,7 +68,7 @@ public class PlayerManager {
 			else
 				System.out.printf("%c: ",Constants.PLAYER_2_CHAR);
 			
-			System.out.print("select the AI:\n(1) - ROMAN, (2) - ANTON, (3) - CONSTANTIN, (0) - NO CPU, return: ");
+			System.out.print("select the AI:\n(1) - ROMAN, (2) - ANTON, (3) - CONSTANTIN: ");
 			String AIName="nobody";
 			
 			ctrlAI=key.nextInt();
@@ -89,7 +89,7 @@ public class PlayerManager {
 			if (ctrlAI==0)
 				selectPlayers();
 			
-		}while((ctrlAI!=1)&&(ctrlAI!=2)&&(ctrlAI!=3)&&(ctrlAI!=0));
+		}while((ctrlAI!=1)&&(ctrlAI!=2)&&(ctrlAI!=3));
 		ctrl=0;//RESET ctrl
 	}
 	
