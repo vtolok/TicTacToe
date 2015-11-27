@@ -46,7 +46,7 @@ public class AIRoman extends AbstractAI {
 		localBoard = board.clone();
 		int maxIndex = -1;
 		if (boardIsEmpty()) {
-			maxIndex = (int) (Math.random() * (localBoard.length));
+			maxIndex = (int) (Math.random() * localBoard.length);
 		} else {
 			int res = benefitsOfProgress(player, 0);
 			maxIndex = res - cutOffMove(res);
