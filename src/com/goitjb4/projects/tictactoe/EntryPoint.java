@@ -13,12 +13,12 @@ public class EntryPoint {
 	private static Scanner key=new Scanner (System.in);
 	
 	public static void main (String args[] ){
- 	System.out.println("A tic-tac-toe game!\n");// WELCOME
+ 	System.out.print("A tic-tac-toe game!\n");// WELCOME
         
  		do{ 
  			Game.setEndFlag(false);
  			do{
- 			System.out.print("Begin a new game? (1) - yes; (2) - no: ");
+ 			System.out.print("\nBegin a new game? (1) - yes; (2) - no: ");
  			play = key.nextInt();
  			}while((play!=1)&&(play!=2));
  			if (play==2)
