@@ -8,6 +8,8 @@ package com.goitjb4.projects.tictactoe;
 import java.util.Scanner;
 
 public class HumanPlayer {
+	
+	private static Scanner kb = new Scanner(System.in);
 
 	public static void setPlayer(int playerID) {// SETS playr's names + designates his/her figures
 		System.out.print("Please set Player ");
@@ -15,7 +17,6 @@ public class HumanPlayer {
 			System.out.printf("%c NAME: ", Constants.PLAYER_1_CHAR);
 		else
 			System.out.printf("%c NAME: ", Constants.PLAYER_2_CHAR);
-		Scanner kb = new Scanner(System.in);
 
 		if (playerID == 1) {
 			PlayerManager.Player1Name = kb.next();

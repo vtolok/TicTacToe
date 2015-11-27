@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class Game {
 	
+	private static Scanner choice = new Scanner (System.in);
+	
 	private static int [] masterBoard = new int [Constants.BOARD_SIZE];
 	public static int [] getBoard(){
 		return masterBoard;
@@ -38,7 +40,6 @@ public class Game {
 	
 	public static void firstMoveChoice (){// set 1st player to make a move
 		int temp;
-		Scanner choice = new Scanner (System.in);
 		do {
 			System.out.printf("Choose a player to move first:\n(1) - Player %c, (2) - Player %c: ",Constants.PLAYER_1_CHAR,Constants.PLAYER_2_CHAR);
 			temp = choice.nextInt();
