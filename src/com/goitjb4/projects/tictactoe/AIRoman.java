@@ -5,10 +5,11 @@ import java.util.List;
 
 public class AIRoman extends AbstractAI {
 
-	public static final int ENEMY_CAN_WIN = 5;
-	public static final int DRAW = 2;
-	public static final int UNCLEAR_SITUATION = 3;
+	
+	public static final int UNCLEAR_SITUATION = 2;
+	public static final int DRAW = 3;
 	public static final int I_CAN_WIN = 4;
+	public static final int ENEMY_CAN_WIN = 5;
 
 	public static final int CENTER_OF_THE_BOARD = 4;
 
@@ -66,7 +67,7 @@ public class AIRoman extends AbstractAI {
 
 	}
 
-	private int benefitsOfProgress(int player, int[] board, Integer cell) {
+	private static int benefitsOfProgress(int player, int[] board, Integer cell) {
 
 		int maxValue, maxIndex, resValue;
 		resValue = maxValue = 0;
@@ -112,14 +113,41 @@ public class AIRoman extends AbstractAI {
 	}
 
 	public static int getWeigthOfThatStep(int enemy, int[] board) {
-		if (playerCanWin(enemy, board)) {
+		/*if (playerCanWin(enemy, board)) {
 			return ENEMY_CAN_WIN;
 		}
 
 		if (canMove(board))
 			return UNCLEAR_SITUATION;
 		else
-			return DRAW;
+			return DRAW;*/
+
+		int minValue = UNCLEAR_SITUATION;
+		int player = enemy;
+		int resValue = UNCLEAR_SITUATION;
+		
+		int[] localBoard = board.clone();
+		
+		for (int i = 0; i < localBoard.length; i++) {
+
+			localBoard = board.clone();
+			if (localBoard[i] == 0) {
+				localBoard[i] = player;
+				if (playerCanWin(player, localBoard)) {
+					return ENEMY_CAN_WIN;// WIN;
+				}
+				
+
+				resValue = getWeigthOfThatStep(player, localBoard);
+
+				if (resValue <= minValue) {
+					minValue = resValue;
+				}
+
+			}
+		}
+		return minValue;
+		
 	}
 
 	public static int countOfFillCells(int[] board) {
